@@ -1,10 +1,14 @@
+using CardActions.API.Models.Api;
 using CardActions.API.Persistence;
 using CardActions.API.Services;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("card-actions-db"));
+
+builder.Services.AddScoped<IValidator<GetActionsRequest>, GetActionsRequestValidator>();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -30,3 +34,6 @@ app.UseHttpsRedirection();
 app.MapActionEndpoints();
 
 app.Run();
+
+// needed for integration testing
+public partial class Program {}

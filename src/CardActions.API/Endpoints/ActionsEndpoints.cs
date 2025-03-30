@@ -1,5 +1,7 @@
 using CardActions.API.Services;
+using CardActions.API.Models.Api;
 using Microsoft.AspNetCore.Mvc;
+using FluentValidation;
 
 internal static class ActionsEndpoints
 {
@@ -8,10 +10,18 @@ internal static class ActionsEndpoints
     public static WebApplication MapActionEndpoints(this WebApplication app)
     {
         app.MapGet(Get, async (
-            [AsParameters] GetActionsRequest request, 
+            [AsParameters] GetActionsRequest request,
+            [FromServices] IValidator<GetActionsRequest> validator,
             [FromServices] ICardService cardService, 
             [FromServices] IActionsService actionsService) =>
         {
+            var validationResult = await validator.ValidateAsync(request);
+
+            if (!validationResult.IsValid) 
+            {
+                return Results.ValidationProblem(validationResult.ToDictionary());
+            }
+
             var cardDetails = await cardService.GetCardDetailsAsync(request.UserId, request.CardNumber);
             
             if (cardDetails is null)
@@ -22,7 +32,6 @@ internal static class ActionsEndpoints
             var allowedActions = await actionsService.GetActionsAsync(cardDetails);
             return Results.Ok(new GetActionsResponse(allowedActions));
         })
-        .WithName("GetActions")
         .WithDescription("Get the actions that can be performed on a card.")
         .WithOpenApi()
         .Produces<GetActionsResponse>(StatusCodes.Status200OK)

@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D8032E1A-1C1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardActions.API", "src\CardActions.API\CardActions.API.csproj", "{B76503DB-BE8F-444D-81D4-1C95134E9DF7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3BB5B6DB-A1B8-452C-9954-0B76C966DDD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardActions.Tests", "tests\CardActions.Tests\CardActions.Tests.csproj", "{DE6AB548-0AAF-4CE4-A9D8-0D830F86E036}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{B76503DB-BE8F-444D-81D4-1C95134E9DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B76503DB-BE8F-444D-81D4-1C95134E9DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B76503DB-BE8F-444D-81D4-1C95134E9DF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE6AB548-0AAF-4CE4-A9D8-0D830F86E036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE6AB548-0AAF-4CE4-A9D8-0D830F86E036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE6AB548-0AAF-4CE4-A9D8-0D830F86E036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE6AB548-0AAF-4CE4-A9D8-0D830F86E036}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B76503DB-BE8F-444D-81D4-1C95134E9DF7} = {D8032E1A-1C16-47CE-BE45-A05F37723274}
+		{DE6AB548-0AAF-4CE4-A9D8-0D830F86E036} = {3BB5B6DB-A1B8-452C-9954-0B76C966DDD8}
 	EndGlobalSection
 EndGlobal

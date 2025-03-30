@@ -12,7 +12,7 @@ internal static class Seed
 
         Enumerable.Range(1, 13).ToList().ForEach(i =>
         {
-            dbContext.Actions.Add(new CardActions.API.Models.Persistence.Action { Id = i, Name = $"Action{i}" });
+            dbContext.Actions.Add(new Models.Persistence.Action { Id = i, Name = $"ACTION{i}" });
         });
 
         foreach (CardType cardType in Enum.GetValues(typeof(CardType)))
