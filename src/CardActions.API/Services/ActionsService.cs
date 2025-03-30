@@ -4,7 +4,7 @@ namespace CardActions.API.Services;
 
 internal class ActionsService : IActionsService
 {
-    public async Task<string[]> GetActionAsync(CardDetails cardDetails, CancellationToken cancellationToken)
+    public async Task<string[]> GetActionsAsync(CardDetails cardDetails, CancellationToken cancellationToken)
     {
         return [];
     }

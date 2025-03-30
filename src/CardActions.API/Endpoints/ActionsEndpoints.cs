@@ -19,7 +19,7 @@ internal static class ActionsEndpoints
                 return Results.BadRequest("Card not found for specified parameters.");
             }
 
-            var allowedActions = await actionsService.GetActionAsync(cardDetails);
+            var allowedActions = await actionsService.GetActionsAsync(cardDetails);
             return Results.Ok(new GetActionsResponse(allowedActions));
         })
         .WithName("GetActions")
